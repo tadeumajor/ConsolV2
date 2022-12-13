@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style/styleCss.css"/>
+</head>
+
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Condominio</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Notícias</a></li>
+                <li><a href="badges.html">Fale Conosco</a></li>
+                <li><a href="/condominios" class="waves-effect waves-light btn-small"><i class="material-icons left">add_box</i>Lista de condominio</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <div th:each="condominio: ${condominio}" class="container detalhesCondominio">
+        <h5>Detalhes do Condominio</h5>
+        <div class="row">
+            <p>Nome: <span th:text ="${condominio.nome}"></span></p>
+            <p>Rua: <span th:text ="${condominio.rua}"></span></p>
+            <p>Bairro: <span th:text ="${condominio.bairro}"></span></p>
+            <p>Número: <span th:text ="${condominio.numero}"></span></p>
+            <p>CEP: <span th:text ="${condominio.cep}"></span></p>
+
+            <p>Consumo médio mensal KW: <span th:text ="${condominio.consumoMedioMesKwh}"></span></p>
+
+            <p>Quantidade de paineis necessários considerando modelo Fotovoltaico 330W : <span th:text ="${condominio.qtdPaineis}"></span></p> </p>
+            <p>Valor médio por painel: R$ <span th:text ="${condominio.valorPaineis}"></span></p>
+            <p>Valor aproximado: R$<span th:text ="${condominio.valorAproximado}"></span></p>
+        </div>
+    </div>
+
+        <th:block th:include="mensagemValidacao"></th:block>
+
+<div class="container formUsuario">
+    <h5>Cadastro de moradores:</h5>
+    <form method="post">
+        Nome: <input type="text" value="" name="nomeMorador" placeholder="Nome completo"/>
+        CPF: <input type="text" value="" name="cpf" placeholder="cpf"/>
+        Email: <input type="text" value="" name="email"/>
+        Telefone de contato: <input type="text" value="" name="telContato"/>
+        Número do Apartamento<input type="text" value="" name="numAp"/>
+        <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+    </form>
+    </div>
+    <table class="container tabelaUsuario">
+        <thead>
+        <tr>
+            <th>Nome condomino</th>
+            <th>CPF</th>
+            <th>Email de contato</th>
+            <th>Telefone</th>
+            <th> Nº apto</th>
+<!--            <th>Edite</th>-->
+            <th>Deletar</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuarios: ${usuarios}">
+                <td><span th:text="${usuarios.nomeMorador}"></span></td>
+                <td><span th:text="${usuarios.cpf}"></span></td>
+                <td><span th:text="${usuarios.email}"></span></td>
+                <td><span th:text="${usuarios.telContato}"></span></td>
+                <td><span th:text="${usuarios.numAp}"></span></td>
+<!--                <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#deleteUsuario').arg(0, usuarios.cpf)).build()}"><i class="material-icons left">system_update_alt</i></a></td>-->
+                <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('CC#deleteUsuario').arg(0, usuarios.cpf)).build()}"><i class="material-icons left">delete</i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+</html>

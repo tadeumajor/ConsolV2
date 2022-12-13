@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualiza Condominio</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style/styleCss.css"/>
+</head>
+
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Atualizar Condominio</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Notícias</a></li>
+                <li><a href="badges.html">Fale Conosco</a></li>
+                <li><a href="/condominios" class="waves-effect waves-light btn-small"><i class="material-icons right"></i>Lista Condominios</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<th:block th:include="mensagemValidacao"></th:block>
+<div class="container updateForm">
+<form action="#" th:action="@{/condominios/editarCondominio/{codigo}(codigo = ${condominio.codigo})}"  th:object="${condominio}" class="container" method="post" th:each="condominio : ${condominio}">
+    Nome: <input type="text" th:field="${condominio.nome}"/>
+    <div class="row">
+        <div class="input-field col s6">
+            Rua: <input type="text" th:field="${condominio.rua}"/>
+            <th:block th:include="mensagemValidacao"></th:block>
+        </div>
+        <div class="input-field col s6">
+            Bairro: <input type="text" th:field="${condominio.bairro}"/>
+            <th:block th:include="mensagemValidacao"></th:block>
+        </div>
+        <div class="input-field col s6">
+            CEP: <input type="text" th:field="${condominio.cep}"/>
+            <th:block th:include="mensagemValidacao"></th:block>
+        </div>
+           <div class="input-field col s3">
+               Número: <input type="text" th:field="${condominio.numero}"/>
+           </div>
+           <div class="input-field col s3">
+               Consumo médio KW: <input type="text" th:field="${condominio.consumoMedioMesKwh}"/>
+           </div>
+       </div>
+    <button class="waves-effect waves-light btn" type="submit"><i class="material-icons left">save</i>Salvar</button>
+
+    </form>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+
+
+</body>
+</html>
