@@ -18,8 +18,8 @@
         <div class="nav-wrapper deep-purple  darken-1">
             <a href="#" class="brand-logo">Condominio</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Notícias</a></li>
-                <li><a href="badges.html">Fale Conosco</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/faleConosco">Fale Conosco</a></li>
                 <li><a href="/condominios" class="waves-effect waves-light btn-small"><i class="material-icons left">add_box</i>Lista de condominio</a></li>
             </ul>
         </div>
@@ -41,6 +41,19 @@
             <p>Valor médio por painel: R$ <span th:text ="${condominio.valorPaineis}"></span></p>
             <p>Valor aproximado: R$<span th:text ="${condominio.valorAproximado}"></span></p>
         </div>
+        <div>
+            <h5>Empresas especializadas</h5>
+            <p>Página:<a href="https://www.vertenergia.com.br">Verte Energia</a> - <a href="mailto:contato@vertenergia.com.br">Email</a></p>
+            <p>Página:<a href="https://www.ecominasenergia.com.br/">Eco Minas Energia</a> - <a href="mailto:contato@ecominasenergia.com.br">Email</a></p>
+            <p>Página:<a href="https://solarbrenergia.com.br/">Solar Energia</a> - <a href="mailto:contato@solarbrenergia.com.br">Email</a></p><br>
+        </div>
+        <div>
+            <h5>Financiamentos:</h5>
+            <p>Página:<a href="https://www.bv.com.br/financiamento/solar">Banco BV</a></p>
+            <p>Página:<a href="https://www.bv.com.br/financiamento/solar">Caixa Econômica</a></p>
+        </div>
+
+
     </div>
 
         <th:block th:include="mensagemValidacao"></th:block>

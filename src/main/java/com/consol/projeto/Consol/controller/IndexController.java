@@ -8,6 +8,11 @@ public class IndexController {
 
     @RequestMapping("/")
     public  String index(){
-        return "index";
+        return "home";
+    }
+
+    @RequestMapping("/faleConosco")
+    public  String faleConosco(){
+        return "faleConosco";
     }
 }
